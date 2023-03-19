@@ -1,0 +1,2 @@
+This is a demo to make sure that i connected succesfully both github and my PC at home
+hello world (lol)
