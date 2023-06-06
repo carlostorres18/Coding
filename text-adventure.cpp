@@ -10,6 +10,7 @@
       */
 
 #include <iostream>
+#include <iomanip>
 
 int main(){
     int good = 0;
@@ -22,7 +23,7 @@ int main(){
     std::cout<<"Hello and welcome, my name is edoc.\n";
     std::cout<<"I'll be your guide throughout this adventure.\n";
     std::cout<<"Lets first start with your name:\n";
-    std::cin>>name;
+    std::getline(std::cin, name);
     std::cout<<"So your name is "<<name<<", believe it or not my cousin was named the same.\n";
 
     std::cout<<"Anyways lets get started, you will play a role in a story.\n";
@@ -30,9 +31,78 @@ int main(){
     std::cout<<"You may have 2 options or even 3 options, and based on which options you choose, it will affect you later on.\n";
     std::cout<<"So good luck, and lets get this started.\n";
 
-    
+    int num;
+    double sum = 0;
 
+    std::cout<<"You are stuck in a maze, and are given the option to stay or get up. What will you do?\n";
+    std::cout<<"    1) Stay\n";
+    std::cout<<"    2) Get up and move forward\n";
+    std::cout<<"Enter your choice: 1 or 2\n";
+    std::cin>>input;
+    while(true){
+        if(input == 1){
+            std::cout<<"You decide to stay some more, don't know why since there is nothing to do for you to stay.\n\n";
+            std::cout<<"You are still stuck at the beginning of the maze. What will you do?\n";
+            std::cout<<"    1) Stay some more\n";
+            std::cout<<"    2) Get up and move forward\n";
+            std::cout<<"Enter your choice: 1 or 2\n";
+            std::cin>>input;
+        }
+        else if(input == 2){
+            std::cout<<"You get up and go forward\n";
+            break;
+        }
+        else{
+            std::cout<<"You did not input a correct input, you can only input 1 or 2.\n";
+            std::cout<<"Re-start your adventure, don't let it happen again.\n";
+            break;
+        }
+    }
 
+    std::cout<<"In front of you there lies 2 paths.\n";
+    std::cout<<"One of them is dark, and gloomy, the other one is full of light and and life.\n";
+    std::cout<<"Which path will you choose?\n";
+    std::cout<<"    1) Dark and gloomy\n";
+    std::cout<<"    2)Light full of life\n";
+    std::cin>>input;
 
+    while(true){
+        if(input == 1){
+            std::cout<<"Its dark up a head, take this lamp with you.\n";
+            std::cout<<"    You received a lamp.\n";
+            good++;
+            bad++;
+            break;
+        }
+        else if(input == 2){
+            std::cout<<"Its really bright up ahead, take this sunglasses.\n";
+            std::cout<<"    You received cool pair of sunglasses\n";
+            break;
+        }
+        else{
+            std::cout<<"You did not input a correct input, you can only input 1 or 2.\n";
+            std::cout<<"Re-start your adventure, don't let it happen again.\n";
+            break;
+        }
+    }
+
+    for (int i = 0; i < 4; i++){
+        std::cout<<"Enter number: ";
+        std::cin>>num;
+
+        sum += num;
+    }
+
+    double average;
+    average = sum / 4;
+    if(average == 2.50){
+        std::cout<<"Congrats you got "<<std::setprecision(2)<<std::fixed<<"exactly "<<average<<std::endl;
+    }
+    else{
+        std::cout<<"ERROR\n";
+        bad++;
+    }
+
+    return 0;
 
 }
