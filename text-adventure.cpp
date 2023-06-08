@@ -34,6 +34,8 @@ int main(){
     int num;
     double sum = 0;
 
+    // Set of questions.
+
     std::cout<<"You are stuck in a maze, and are given the option to stay or get up. What will you do?\n";
     std::cout<<"    1) Stay\n";
     std::cout<<"    2) Get up and move forward\n";
@@ -63,7 +65,7 @@ int main(){
     std::cout<<"One of them is dark, and gloomy, the other one is full of light and and life.\n";
     std::cout<<"Which path will you choose?\n";
     std::cout<<"    1) Dark and gloomy\n";
-    std::cout<<"    2)Light full of life\n";
+    std::cout<<"    2) Light full of life\n";
     std::cin>>input;
 
     while(true){
@@ -78,6 +80,8 @@ int main(){
             std::cout<<"Its really bright up ahead, take this sunglasses.\n";
             std::cout<<"    You received cool pair of sunglasses\n";
             break;
+            good++;
+            bad++;
         }
         else{
             std::cout<<"You did not input a correct input, you can only input 1 or 2.\n";
@@ -85,6 +89,9 @@ int main(){
             break;
         }
     }
+
+    std::cout<<"There is a road up ahead, and there is a written question on a table.\n";
+    std::cout<<"Write 4 numbers that will give you the equivalent of 2.5 in average.\n\n";
 
     for (int i = 0; i < 4; i++){
         std::cout<<"Enter number: ";
@@ -97,11 +104,33 @@ int main(){
     average = sum / 4;
     if(average == 2.50){
         std::cout<<"Congrats you got "<<std::setprecision(2)<<std::fixed<<"exactly "<<average<<std::endl;
+        good++;
     }
     else{
         std::cout<<"ERROR\n";
         bad++;
     }
+
+    /*Decide the ending based on how many points each "ending" received.*/
+
+    int max = 0;
+    std::string ending;
+
+    if(good == bad){
+        ending = "You are stuck in the maze, and probably will be for eternity.\n";
+    }
+
+    if(good > max){
+        max = good;
+        ending = "You make it to the end, safe and sounds, with all your bones intact.\n";
+    }
+    if(bad > max){
+        max = bad;
+        ending = "You lie down, as you feel dizzy, and finally give your last breath as you slowly die.\n";
+    }
+
+    std::cout<<ending<<"\n";
+
 
     return 0;
 
